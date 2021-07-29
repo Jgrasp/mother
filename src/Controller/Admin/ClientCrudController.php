@@ -3,12 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Client;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\NumericFilter;
 
 class ClientCrudController extends AbstractCrudController
 {
@@ -21,6 +21,12 @@ class ClientCrudController extends AbstractCrudController
     {
         yield TextField::new('name');
         yield AssociationField::new('type')->setRequired(true);
+
+        yield IntegerField::new('countProject', 'Projects')
+            ->setFormTypeOption('mapped', false)
+            ->setVirtual(true)
+            ->hideOnForm();
     }
+
 
 }

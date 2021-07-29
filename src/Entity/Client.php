@@ -61,6 +61,11 @@ class Client
         return $this->projects;
     }
 
+    public function countProject(): int
+    {
+        return $this->getProjects()->count();
+    }
+
     public function __toString(): string
     {
         return $this->name;
