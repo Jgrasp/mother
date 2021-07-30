@@ -61,6 +61,11 @@ class Client
         return $this->projects;
     }
 
+    public function hasProject(): bool
+    {
+        return $this->countProject() > 0;
+    }
+
     public function countProject(): int
     {
         return $this->getProjects()->count();
