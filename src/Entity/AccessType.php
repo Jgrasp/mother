@@ -45,4 +45,11 @@ class AccessType
     {
         return $this->accesses;
     }
+
+    public function __toString(): string
+    {
+        return $this->getName();
+    }
+
+
 }
