@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -19,6 +21,14 @@ class Project
 
     #[ORM\ManyToOne(targetEntity: Client::class, inversedBy: 'projects')]
     private Client $client;
+
+    #[ORM\OneToMany(mappedBy: 'project', targetEntity: Access::class)]
+    private Collection $accesses;
+
+    public function __construct()
+    {
+        $this->accesses = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -47,5 +57,20 @@ class Project
         return $this->client;
     }
 
+    public function getAccesses(): ArrayCollection
+    {
+        return $this->accesses;
+    }
+
+    public function setAccesses(ArrayCollection $accesses): Project
+    {
+        $this->accesses = $accesses;
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 
 }

@@ -46,6 +46,9 @@ class Access
     #[ManyToOne(targetEntity: Protocol::class, inversedBy: 'accesses')]
     private Protocol $protocol;
 
+    #[ManyToOne(targetEntity: Project::class, inversedBy: 'accesses')]
+    private Project $project;
+
     public function getId(): int
     {
         return $this->id;
@@ -138,4 +141,21 @@ class Access
         $this->protocol = $protocol;
         return $this;
     }
+
+    public function getProject(): Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(Project $project): Access
+    {
+        $this->project = $project;
+        return $this;
+    }
+
+    public function getClient(): Client
+    {
+        return $this->getProject()->getClient();
+    }
+
 }

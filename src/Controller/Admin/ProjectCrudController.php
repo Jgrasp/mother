@@ -16,9 +16,9 @@ class ProjectCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('name', 'Name');
         yield AssociationField::new('client')
             ->setRequired(true);
+        yield TextField::new('name', 'Name');
     }
 
 }
