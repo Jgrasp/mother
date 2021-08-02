@@ -109,6 +109,21 @@
     "nikic/php-parser": {
         "version": "v4.12.0"
     },
+    "paragonie/constant_time_encoding": {
+        "version": "v2.4.0"
+    },
+    "paragonie/halite": {
+        "version": "v4.8.0"
+    },
+    "paragonie/hidden-string": {
+        "version": "v2.0.0"
+    },
+    "paragonie/random_compat": {
+        "version": "v9.99.100"
+    },
+    "paragonie/sodium_compat": {
+        "version": "v1.16.1"
+    },
     "phar-io/manifest": {
         "version": "2.0.3"
     },

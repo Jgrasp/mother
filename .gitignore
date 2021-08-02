@@ -18,3 +18,5 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+/config/secrets/dev/dev.decrypt.private.php
+/config/secrets/encryption.key

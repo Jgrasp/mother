@@ -13,7 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
 final class ProjectListingConfigurator implements FieldConfiguratorInterface
 {
-    private $adminUrlGenerator;
+    private AdminUrlGenerator $adminUrlGenerator;
 
     public function __construct(AdminUrlGenerator $adminUrlGenerator)
     {

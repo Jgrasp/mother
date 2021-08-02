@@ -2,9 +2,13 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Access;
+use App\Entity\AccessType;
 use App\Entity\Client;
 use App\Entity\ClientType;
+use App\Entity\Environment;
 use App\Entity\Project;
+use App\Entity\Protocol;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -37,9 +41,17 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Clients', 'fa fa-building', Client::class);
         yield MenuItem::linkToCrud('Projects', 'fa fa-project-diagram', Project::class);
 
+        yield MenuItem::linkToCrud('Access', null, Access::class);
+
         yield MenuItem::section('Configure');
         yield MenuItem::subMenu('Client')->setSubItems([
             MenuItem::linkToCrud('Clients type', null, ClientType::class)
+        ]);
+
+        yield MenuItem::subMenu('Projects')->setSubItems([
+            MenuItem::linkToCrud('Environment', null, Environment::class),
+            MenuItem::linkToCrud('Protocol', null, Protocol::class),
+            MenuItem::linkToCrud('Access type', null, AccessType::class),
         ]);
     }
 }
