@@ -64,6 +64,7 @@ class ClientCrudController extends AbstractCrudController
             ->setAction(Action::INDEX)
             ->set('filters[client][comparison]', '=')
             ->set('filters[client][value]', $context->getEntity()->getPrimaryKeyValue())
+            ->setEntityId(null)
             ->generateUrl();
 
         return $this->redirect($url);

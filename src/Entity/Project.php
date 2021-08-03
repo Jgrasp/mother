@@ -57,7 +57,7 @@ class Project
         return $this->client;
     }
 
-    public function getAccesses(): ArrayCollection
+    public function getAccesses(): Collection
     {
         return $this->accesses;
     }
@@ -66,6 +66,11 @@ class Project
     {
         $this->accesses = $accesses;
         return $this;
+    }
+
+    public function hasAccesses(): bool
+    {
+        return $this->getAccesses()->count() > 0;
     }
 
     public function __toString(): string

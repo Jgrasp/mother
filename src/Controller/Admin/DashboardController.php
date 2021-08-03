@@ -41,8 +41,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Clients', 'fa fa-building', Client::class);
         yield MenuItem::linkToCrud('Projects', 'fa fa-project-diagram', Project::class);
 
-        yield MenuItem::linkToCrud('Access', null, Access::class);
-
         yield MenuItem::section('Configure');
         yield MenuItem::subMenu('Client')->setSubItems([
             MenuItem::linkToCrud('Clients type', null, ClientType::class)

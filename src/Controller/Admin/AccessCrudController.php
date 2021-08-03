@@ -6,6 +6,7 @@ use App\Admin\Field\OpenField;
 use App\Admin\Field\PortField;
 use App\Entity\Access;
 use Doctrine\ORM\QueryBuilder;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Option\SortOrder;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -19,6 +20,11 @@ class AccessCrudController extends AbstractCrudController
         return Access::class;
     }
 
+    public function configureFilters(Filters $filters): Filters
+    {
+        return $filters
+            ->add('project');
+    }
 
     public function configureFields(string $pageName): iterable
     {
