@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <form action="{{ field.customOptions.get('url') }}" method="post" target="_blank">
+    <form action="{{ field.customOptions.get('url') }}/index.php" method="post" target="_blank">
         <input name="redirect" type="hidden" value="{{ field.customOptions.get('url') }}">
         <input name="email" type="hidden" value="{{ field.customOptions.get('username') }}">
         <input name="passwd" type="hidden" value="{{ field.customOptions.get('password') }}">

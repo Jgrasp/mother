@@ -30,7 +30,6 @@ class AccessCrudController extends AbstractCrudController
     {
         yield FormField::addPanel('Configuration');
         yield AssociationField::new('project')
-            ->setRequired(true)
             ->setQueryBuilder(function (QueryBuilder $builder) {
                 return $builder
                     ->join('entity.client', 'client')
