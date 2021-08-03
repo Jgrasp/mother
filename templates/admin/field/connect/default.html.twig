@@ -1,0 +1,8 @@
+{% block content %}
+    <a href="{{ field.customOptions.get('url') }}" class="btn btn-primary" target="_blank">
+        {% block connect %}
+            {{ 'Connect'|trans }}
+        {% endblock %}
+    </a>
+{% endblock %}
+

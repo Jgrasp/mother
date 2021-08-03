@@ -1,0 +1,14 @@
+{% extends 'admin/field/connect/default.html.twig' %}
+
+{% block content %}
+
+    <form action="{{ field.customOptions.get('url') }}" method="post" target="_blank">
+        <input name="redirect" type="hidden" value="{{ field.customOptions.get('url') }}">
+        <input name="email" type="hidden" value="{{ field.customOptions.get('username') }}">
+        <input name="passwd" type="hidden" value="{{ field.customOptions.get('password') }}">
+        <input name="stay_logged_in" type="hidden" value="1">
+        <input name="controller" type="hidden" value="AdminLogin">
+        <button name="submitLogin" type="submit" class="btn btn-primary">{{ block('connect') }}</button>
+    </form>
+
+{% endblock %}

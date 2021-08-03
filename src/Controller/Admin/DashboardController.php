@@ -7,6 +7,7 @@ use App\Entity\AccessType;
 use App\Entity\Client;
 use App\Entity\ClientType;
 use App\Entity\Environment;
+use App\Entity\Framework;
 use App\Entity\Project;
 use App\Entity\Protocol;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -47,6 +48,7 @@ class DashboardController extends AbstractDashboardController
         ]);
 
         yield MenuItem::subMenu('Projects')->setSubItems([
+            MenuItem::linkToCrud('Frameworks', null, Framework::class),
             MenuItem::linkToCrud('Environment', null, Environment::class),
             MenuItem::linkToCrud('Protocol', null, Protocol::class),
             MenuItem::linkToCrud('Access type', null, AccessType::class),

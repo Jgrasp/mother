@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Admin\Field\OpenField;
+use App\Admin\Field\ConnectField;
 use App\Admin\Field\PortField;
 use App\Entity\Access;
 use Doctrine\ORM\QueryBuilder;
@@ -58,8 +58,13 @@ class AccessCrudController extends AbstractCrudController
         yield TextField::new('username');
         yield TextField::new('password');
 
-        yield OpenField::new('Link')
-            ->setVirtual(true)
+        yield FormField::addPanel('Framework');
+        yield AssociationField::new('frameworkVersion')
+            ->setRequired(false)
+            ->onlyOnForms();
+
+
+        yield ConnectField::new('connect')
             ->onlyOnIndex();
     }
 

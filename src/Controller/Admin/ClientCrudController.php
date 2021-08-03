@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Admin\Field\ProjectListingField;
 use App\Entity\Client;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -13,7 +12,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use SebastianBergmann\CodeCoverage\Report\Text;
 use Symfony\Component\HttpFoundation\Response;
 
 

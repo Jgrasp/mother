@@ -2,9 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
-
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
@@ -48,6 +45,9 @@ class Access
 
     #[ManyToOne(targetEntity: Project::class, inversedBy: 'accesses')]
     private Project $project;
+
+    #[ManyToOne(targetEntity: FrameworkVersion::class, inversedBy: 'accesses')]
+    private ?FrameworkVersion $frameworkVersion;
 
     public function getId(): int
     {
@@ -158,4 +158,32 @@ class Access
         return $this->getProject()->getClient();
     }
 
+    public function hasFramework(): bool
+    {
+        return !is_null($this->getFrameworkVersion());
+    }
+
+    public function getFrameworkVersion(): ?FrameworkVersion
+    {
+        return $this->frameworkVersion;
+    }
+
+    public function setFrameworkVersion(?FrameworkVersion $frameworkVersion): Access
+    {
+        $this->frameworkVersion = $frameworkVersion;
+        return $this;
+    }
+
+    public function getUrl(): string
+    {
+        $url = $this->getProtocol().'://'.$this->getHost();
+
+        if ($this->getPort()) {
+            $url .= ':'.$this->getPort();
+        }
+
+        $url .= $this->getPath();
+
+        return $url;
+    }
 }
